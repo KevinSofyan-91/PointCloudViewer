@@ -505,9 +505,9 @@ void OpenGLRenderer::LoadLasPoints(const CString& filePath)
 
         LASreadOpener lasOpener;
 
-        int pathLength = WideCharToMultiByte(CP_UTF8, 0, filePath, -1, nullptr, 0, nullptr, nullptr);
+        int pathLength = WideCharToMultiByte(CP_ACP, 0, filePath, -1, nullptr, 0, nullptr, nullptr);
         char* path = new char[pathLength];
-        WideCharToMultiByte(CP_UTF8, 0, filePath, -1, path, pathLength, nullptr, nullptr);
+        WideCharToMultiByte(CP_ACP, 0, filePath, -1, path, pathLength, nullptr, nullptr);
 
         lasOpener.set_file_name(path);
         LASreader* lasreader = lasOpener.open();
